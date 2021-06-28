@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Http\Requests\PostRequest;
 
 class ProductController extends Controller
 {
@@ -12,7 +13,11 @@ class ProductController extends Controller
         return view('layouts/top');
     }
     
-    // public function result(){
-    //     return view('layouts/result');
-    // }
+    public function search(){
+        return view('layouts/search');
+    }
+    
+    public function result(){
+        return view('layouts/result');
+    }
 }
