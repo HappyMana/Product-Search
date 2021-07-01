@@ -15,15 +15,14 @@ body {
   width: 200px;
 }
 
-/*main content*/
-
-.contents {
+.contents-top {
    margin-top:50px;
 	padding-top: 100px;
 	justify-content: center;
 	display: flex;
 }
-.container{
+
+.container-top{
    justify-content: center;
    display: flex;
    flex-wrap: wrap;
@@ -31,8 +30,20 @@ body {
    margin: 100;
 }
 
-.container .btn {
+.container-top .btn {
    width: 200px;
    height: 50px;
    margin:20px;
+}
+
+.container-result {
+display: flex;
+flex-wrap:wrap;
+width: 300px;
+}
+.ccard-group .card {
+background-color: #673AB7;
+color: #ffffff;
+padding: 10px;
+margin:10px;
 }

@@ -6,8 +6,8 @@
     <body>
         @include('parts.header')
         
-        <div class='contents'>
-            <div class='container'>
+        <div class='contents-top'>
+            <div class='container-top'>
                 <button type="button" class="btn btn-outline-primary w-200px">トップス</button>
                 <button type="button" class="btn btn-outline-primary w-200px">コート・ジャケット</button>
                 <button type="button" class="btn btn-outline-primary w-200px">パンツ</button>
