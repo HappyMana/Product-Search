@@ -36,11 +36,11 @@ body {
    margin:20px;
 }
 
-.container-result {
-display: flex;
-flex-wrap:wrap;
-width: 300px;
-}
+/*.container-result {*/
+/*display: flex;*/
+/*flex-wrap:wrap;*/
+/*width: 300px;*/
+/*}*/
 .ccard-group .card {
 background-color: #673AB7;
 color: #ffffff;

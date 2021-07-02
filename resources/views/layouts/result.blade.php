@@ -6,9 +6,9 @@
     <body>
         @include('parts.header')
         
-        <div class='contents-result'>
-            <div class="card-group mb-3">
-                <div class="card" style="width: 18rem">
+        <div class='contents-result container-fluid'>
+            <div class="row">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -16,7 +16,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -24,7 +24,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -32,7 +32,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -40,7 +40,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -48,7 +48,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -56,7 +56,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -64,7 +64,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
@@ -72,7 +72,7 @@
                         <a class="btn btn-primary" href="">Details</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem">
+                <div class="card col-3">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
                         <img src="/img/img1.jpeg" class="card-img-top">
