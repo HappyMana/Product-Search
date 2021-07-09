@@ -27,14 +27,3 @@
         </div>
     </nav>
 </header>
-
-    <!--<h1 class='title'><a href="/">Title</a></h1>-->
-    <!--<nav class='top-nav'>-->
-    <!--    <ul class='nav-items'>-->
-    <!--        <li class='nav-item'><a href="/">Home</a></li>-->
-    <!--        <li class='nav-item'><a href="/">About</a></li>-->
-    <!--        <li class='nav-item'><a href="/">Search</a></li>-->
-    <!--        <li class='nav-item'><a href="/">Contact</a></li>-->
-    <!--        <li class='nav-item'><a href="/">Account</a></li>-->
-    <!--    </ul>-->
-    <!--</nav>-->

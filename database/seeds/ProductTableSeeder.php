@@ -11,12 +11,14 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('products')->truncate();
         $product = new \App\Product([
                     'id' => 1,
                     'name' => 'Name1',
                     'price' => 1000,
                     'brand' => 'Brand1',
-                    'shopping_site_name' => 'Amzon',
+                    'shopping_site_name' => 'Amazon',
                     'shopping_site_url' => 'aaaaaaaa']);
         $product->save();
         
@@ -37,6 +39,8 @@ class ProductTableSeeder extends Seeder
                     'shopping_site_name' => 'Amazon',
                     'shopping_site_url' => 'cccccccccc']);
         $product->save();
+        
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         
     }
 }

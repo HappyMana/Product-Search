@@ -20,4 +20,8 @@ class ProductController extends Controller
     public function result(){
         return view('layouts/result');
     }
+    
+    public function rakutensearch(){
+        return view('layouts/rakutensearch');
+    }
 }
