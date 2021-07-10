@@ -10,7 +10,8 @@ use App\Http\Requests\PostRequest;
 class ProductController extends Controller
 {
     public function home(){
-        return view('layouts/top');
+        $products = Product::all();
+        return view('layouts/top')->with(['products' => $products]);
     }
     
     public function search(){

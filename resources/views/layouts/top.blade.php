@@ -16,5 +16,9 @@
                 <button type="button" class="btn btn-outline-primary w-200px">シューズ</button>
                 <button type="button" class="btn btn-outline-primary w-200px">腕時計</button>
         </div>
+        
+        @foreach($products as $product)
+            <p>{{ $product }}</p>
+        @endforeach
     </body>
 </html>
