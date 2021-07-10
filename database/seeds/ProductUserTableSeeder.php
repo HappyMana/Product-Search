@@ -11,8 +11,8 @@ class ProductUserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('product_users')->truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // DB::table('product_users')->truncate();
         $product_users = new \App\ProductUser([
                     'id' => 1,
                     'product_id' => 1,
@@ -31,6 +31,6 @@ class ProductUserTableSeeder extends Seeder
                     'user_id' => 1]);
         $product_users->save();
         
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

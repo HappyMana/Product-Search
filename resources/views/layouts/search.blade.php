@@ -7,10 +7,10 @@
         @include('parts.header')
         <div class="contents-search">
         	<div class="container-search">
-        		<form action="/rakutensearch" method="POST">
+        		<form action="/search/result" method="POST">
         		    @csrf
         			<div class="form-group form-inline input-group-sm">
-        			    <label for="keyword" class="col-md-4 control-label">キーワード</label></label>
+        			    <label for="keyword" class="col-md-4 control-label">キーワード</label>
         			    <input type="text" class="form-control col-md-5" id="keyword" name="search[keyword]" placeholder="キーワード">
         			</div>
         			<div class="form-group form-inline input-group-sm">

@@ -11,8 +11,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('users')->truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // DB::table('users')->truncate();
         $user = new \App\User([
                     'id' => 1,
                     'name' => 'Name1',
@@ -33,6 +33,6 @@ class UserTableSeeder extends Seeder
                     'email' => 'piyo@gmail.com',
                     'password' => 'cccccccccc']);
         $user->save();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

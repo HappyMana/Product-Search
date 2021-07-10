@@ -18,4 +18,4 @@
 Route::get('/', 'ProductController@home');
 Route::get('/search', 'ProductController@search');
 Route::post('/search/result', 'ProductController@result');
-Route::post('/rakutensearch', 'SearchController@index');
+Route::post('/search/result', 'SearchController@index');
