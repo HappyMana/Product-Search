@@ -13,15 +13,15 @@ class CreateProductUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('product_id');
-            $table->unsignedInteger('user_id');
-            // $table->primary(['product_id', 'user_id']);
+        Schema::create("product_users", function (Blueprint $table) {
+            $table->increments("id");
+            $table->unsignedInteger("product_id");
+            $table->unsignedInteger("user_id");
+            // $table->primary(["product_id", "user_id"]);
             $table->timestamps();
         
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
         });
     }
 
@@ -32,6 +32,6 @@ class CreateProductUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_users');
+        Schema::dropIfExists("product_users");
     }
 }

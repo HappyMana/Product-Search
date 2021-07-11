@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        @include('parts.head')
+        @include("parts.head")
     </head>
     <body>
-        @include('parts.header')
+        @include("parts.header")
         <div class="contents-search">
         	<div class="container-search">
         		<form action="/search/result" method="POST">
         		    @csrf
-        			<div class="form-group form-inline input-group-sm">
+        		    
+        			<div class="keyword form-group form-inline input-group-sm">
         			    <label for="keyword" class="col-md-4 control-label">キーワード</label>
         			    <input type="text" class="form-control col-md-5" id="keyword" name="search[keyword]" placeholder="キーワード">
         			</div>
-        			<div class="form-group form-inline input-group-sm">
-        			    <label for="keyword" class="col-md-4 control-label">カテゴリ</label></label>
-        			    <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-1">
-                            <label class="custom-control-label" for="custom-check-1">トップス</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-2">
-                            <label class="custom-control-label" for="custom-check-2">コート・ジャケット</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-3">
-                            <label class="custom-control-label" for="custom-check-3">パンツ</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-4">
-                            <label class="custom-control-label" for="custom-check-4">ワンピース・ドレス</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-5">
-                            <label class="custom-control-label" for="custom-check-5">スカート</label>
-                        </div>
-                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-6">
-                            <label class="custom-control-label" for="custom-check-6">シューズ</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="custom-check-7">
-                            <label class="custom-control-label" for="custom-check-7">腕時計</label>
-                        </div>
+        			<div  class="category form-group form-inline input-group-sm">
+        			    <label for="category" class="col-md-4 control-label">カテゴリ</label>
+        			    <!--<select name="genre0">-->
+        			    <!--    <option hidden></option>-->
+        			    <!--    <option name="women" value="women">レディースファッション</option>-->
+        			    <!--    <option name="mens" value="men">メンズファッション</option>-->
+        			    <!--</select>-->
+        			    <select name="genre1">
+        			        <option hidden></option>
+        			        <option value="tops">トップス</option>
+        			        <option value="bottoms">ボトムス</option>
+        			        <option value="coat-jacket">コート・ジャケット</option>
+        			        <option value="one-piece">ワンピース</option>
+        			        <option value="tunic">チュニック</option>
+        			        <option value="all-in-one-overalls">オールインワン・サロペット</option>
+        			        <option value="dress">ドレス</option>
+        			        <option value="suit-setup">スーツ・セットアップ</option>
+        			        <option value="one-piece">ユニセックスウエア</option>
+        			        <option value="unisex-wear">レインウエア</option>
+        			        <option value="kimono">和服</option>
+        			        <option value="office-cloth">事務服</option>
+        			        <option value="work-cloth">作業服</option>
+        			        <option value="white-coat">白衣</option>
+        			        <option value="school-uniform">学生服</option>
+        			        <option value="swimsuit">水着</option>
+        			        <option value="wedding-dress">ウェデングドレス</option>
+        			        <option value="made-to-order">オーダーメイド</option>
+        			        <option value="lucky-bag">福袋</option>
+        			        <option value="other">その他</option>
+        			    </select>
         			</div>
         			<div class="form-group form-inline input-group-sm">
         			    <label for="price_from" class="col-md-4 control-label">価格</label>

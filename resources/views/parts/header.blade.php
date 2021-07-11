@@ -1,4 +1,5 @@
 <header>
+    <!--<script src="{{ asset("/js/index.js") }}"></script>-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="">Title</a>

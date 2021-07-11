@@ -11,18 +11,18 @@ class ProductController extends Controller
 {
     public function home(){
         $products = Product::all();
-        return view('layouts/top')->with(['products' => $products]);
+        return view("layouts/top")->with(["products" => $products]);
     }
     
     public function search(){
-        return view('layouts/search');
+        return view("layouts/search");
     }
     
     public function result(){
-        return view('layouts/result');
+        return view("layouts/result");
     }
     
     public function rakutensearch(){
-        return view('layouts/rakutensearch');
+        return view("layouts/rakutensearch");  
     }
 }

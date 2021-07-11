@@ -11,36 +11,36 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        // DB::table('products')->truncate();
+        // DB::statement("SET FOREIGN_KEY_CHECKS=0;");
+        // DB::table("products")->truncate();
         $product = new \App\Product([
-                    'id' => 1,
-                    'name' => 'Name1',
-                    'price' => 1000,
-                    'brand' => 'Brand1',
-                    'shopping_site_name' => 'Amazon',
-                    'shopping_site_url' => 'aaaaaaaa']);
+                    "id" => 1,
+                    "name" => "Name1",
+                    "price" => 1000,
+                    "brand" => "Brand1",
+                    "shopping_site_name" => "Amazon",
+                    "shopping_site_url" => "aaaaaaaa"]);
         $product->save();
         
         $product = new \App\Product([
-                    'id' => 2,
-                    'name' => 'Name2',
-                    'price' => 2000,
-                    'brand' => 'Brand2',
-                    'shopping_site_name' => 'ZOZOTOWN',
-                    'shopping_site_url' => 'bbbbbbbbb']);
+                    "id" => 2,
+                    "name" => "Name2",
+                    "price" => 2000,
+                    "brand" => "Brand2",
+                    "shopping_site_name" => "ZOZOTOWN",
+                    "shopping_site_url" => "bbbbbbbbb"]);
         $product->save();
         
         $product = new \App\Product([
-                    'id' => 3,
-                    'name' => 'Name3',
-                    'price' => 3000,
-                    'brand' => 'Brand3',
-                    'shopping_site_name' => 'Amazon',
-                    'shopping_site_url' => 'cccccccccc']);
+                    "id" => 3,
+                    "name" => "Name3",
+                    "price" => 3000,
+                    "brand" => "Brand3",
+                    "shopping_site_name" => "Amazon",
+                    "shopping_site_url" => "cccccccccc"]);
         $product->save();
         
-        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement("SET FOREIGN_KEY_CHECKS=1;");
         
     }
 }

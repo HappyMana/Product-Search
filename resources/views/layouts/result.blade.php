@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        @include('parts.head')
+        @include("parts.head")
     </head>
     <body>
-        @include('parts.header')
+        @include("parts.header")
         
-        <div class='contents-result container-fluid'>
+        <div class="contents-result container-fluid">
             <div class="row">
                 <div class="card col-3">
                     <div class="card-body">

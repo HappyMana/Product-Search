@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        @include('parts.head')
+        @include("parts.head")
     </head>
     <body>
-        @include('parts.header')
+        @include("parts.header")
         
         
     </body>
