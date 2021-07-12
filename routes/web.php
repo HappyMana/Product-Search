@@ -16,6 +16,5 @@
 // });
 
 Route::get("/", "ProductController@home");
-Route::get("/search", "ProductController@search");
-Route::post("/search/result", "ProductController@result");
-Route::post("/search/result", "SearchController@index");
+Route::get("/search", "ProductController@productSearch");
+Route::post("/search/result", "ProductController@getRakutenItems");
