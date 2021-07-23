@@ -2,8 +2,9 @@
 
 return [
 
-    'rakuten_id' => env('RAKUTEN_APPLICATION_ID', false),
-    'rakuten_key' => env('RAKUTEN_APPLICATION_SEACRET', false),
+    'rakuten_id' => env('1069883906759248801', false),
+    'rakuten_key' => env('b655664094929770d5174d8c438bd68fee66fed4', false),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Shopping site'),
 
     /*
     |--------------------------------------------------------------------------

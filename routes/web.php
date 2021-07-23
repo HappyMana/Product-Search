@@ -18,3 +18,6 @@
 Route::get("/", "ProductController@home");
 Route::get("/search", "ProductController@productSearch");
 Route::post("/search/result", "ProductController@getRakutenItems");
+Route::get("/search/result/{product}", "ProductController@detail");
+Auth::routes();
+Route::get('/account', 'HomeController@index')->name('home');

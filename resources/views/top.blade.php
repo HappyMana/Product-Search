@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        @include("parts.head")
-    </head>
-    <body>
-        @include("parts.header")
+@extends('layouts.app')
+
+@section("content")
         
         <div class="contents-top">
             <div class="container-top">
@@ -17,8 +13,11 @@
                 <button type="button" class="btn btn-outline-primary w-200px">腕時計</button>
         </div>
         
-        <!--@foreach($products as $product)-->
-        <!--    <p>{{ $product }}</p>-->
+        <!--@foreach($products as $key => $product)-->
+        <!--    <p>{{ $key }}</p>-->
+        <!--    <br>-->
+        <!--    <p>{{ $product["id"] }}</p>-->
+        <!--    <br>-->
         <!--@endforeach-->
-    </body>
-</html>
+        
+@endsection

@@ -12,50 +12,79 @@ class ProductController extends Controller
 {
     public function home(){
         $products = Product::all();
-        return view("layouts/top")->with(["products" => $products]);
+        return view("top")->with(["products" => $products]);
     }
     
     public function productSearch(){
-        return view("layouts/search");
+        return view("search");
     }
     
-    public function getRakutenItems(Product $product, ProductRequest $request){
+    public function getRakutenItems(ProductRequest $request, Product $product){
         
-        dd($product);
+        $keyword = $request["search"]["keyword"];
+        $category = $request["search"]["category"];
+        $price_lower = $request["search"]["price_lower"];
+        $price_upper = $request["search"]["price_upper"];
+        $sort = $request["search"]["sort"];
         
         $client = new RakutenRws_Client();
         // アプリID (デベロッパーID) をセットします
-        $client->setApplicationId('1069883906759248801');
+        $client->setApplicationId("1069883906759248801");
 
         // アフィリエイトID をセットします(任意)
-        $client->setAffiliateId('20bd65de.feeed3d8.20bd65df.7df9ca74');
+        $client->setAffiliateId("20bd65de.feeed3d8.20bd65df.7df9ca74");
 
-        // IchibaItem/Search API から、keyword=うどん を検索します
-        $response = $client->execute('IchibaItemSearch', array(
-          'keyword' => 'うどん'
+        // IchibaItem/Search API から、keyword を検索します
+        $response = $client->execute("IchibaItemSearch", array(
+            "keyword" => $keyword,
+            "genreId" => $category,
+            "minPrice" => $price_lower,
+            "maxPrice" => $price_upper,
+            "sort" => $sort,
+            "hits" => 16,
+            "page" => $product->page()->currentPage(),
+            "imageFlag" => 1
         ));
+        
+        // dd($response);
         
         // レスポンスが正しいかを isOk() で確認することができます
         if (! $response->isOk()) {
 
-            return'Error:'.$response->getMessage();
+            return"Error:".$response->getMessage();
 
         } else {
             $items = array();
 
             foreach ($response as $key => $rekutenItem) {
                 // 利用データを配列に代入
-                $items[$key]['title'] = $rekutenItem['itemName'];
-                $items[$key]['price'] = $rekutenItem['itemPrice'];
-                if($rekutenItem['imageFlag']) {
-                    $imgSrc = $rekutenItem['mediumImageUrls'][0]['imageUrl'];
-                    $items[$key]['img_src'] = preg_replace('/^http:/', 'https:', $imgSrc);
-                }
+                $items[$key]["itemName"] = $rekutenItem["itemName"];
+                $items[$key]["itemCode"] = $rekutenItem["itemCode"];
+                $items[$key]["itemPrice"] = $rekutenItem["itemPrice"];
+                $items[$key]["itemCaption"] = $rekutenItem["itemCaption"];
+                $items[$key]["reviewCount"] = $rekutenItem["reviewCount"];
+                $items[$key]["reviewAverage"] = $rekutenItem["reviewAverage"];
+                $items[$key]["mediumImageUrls"] = $rekutenItem["mediumImageUrls"];
+                $items[$key]["itemUrl"] = $rekutenItem["itemUrl"];
+                $items[$key]["shopName"] = $rekutenItem["shopName"];
+                $items[$key]["shopUrl"] = $rekutenItem["shopUrl"];
+                
+                // $imgSrc = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
+                // $items[$key]["img_src"] = preg_replace("/^http:/", "https:", $imgSrc);
 
             }
-            // return response()->json($response->getData()); 
-            return $items;
+            $items[17] = $response["pageCount"];
+            
+            // dd($items);
+            // return view("result")->with(["items" => $product->page()]);
+            return view("result")->with(["items" => $items]);
         }
+    }
+    
+    public function detail(Product $product)
+    {
+        dd($product);
+        return view("detail")->with(["item" => $product]);
     }
     
 }
