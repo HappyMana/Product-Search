@@ -67,6 +67,11 @@
                     </form>
                 </div>
             </div>
+            <div class="register">
+                <button type="button" class="btn btn-primary" onclick="location.href='/register'">
+                                {{ __('Register') }}
+                </button>
+            </div>
         </div>
     </div>
 </div>

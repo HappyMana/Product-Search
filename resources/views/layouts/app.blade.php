@@ -33,19 +33,19 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <li class="nav-item @if(Request::routeIs('top')) active @endif">  
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item  @if(Request::routeIs('about')) active @endif">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item  @if(Request::routeIs('search')) active @endif">
                             <a class="nav-link" href="/search">Search</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item  @if(Request::routeIs('contact')) active @endif">
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item  @if(Request::routeIs('account')) active @endif">
                             <a class="nav-link" href="/account">Account</a>
                         </li>
                     </ul>

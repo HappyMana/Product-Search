@@ -56,3 +56,13 @@ body {
 /*   width: 50%;*/
 /*   height: auto;*/
 /*}*/
+
+
+/*detail-start*/
+
+.card-img {
+   width: 15rem;
+   height: auto;
+}
+
+/*detail-end*/

@@ -71,6 +71,11 @@
                     </form>
                 </div>
             </div>
+            <div class="login">
+                <button type="button" class="btn btn-primary" onclick="location.href='/login'">
+                                {{ __('Login') }}
+                </button>
+            </div>
         </div>
     </div>
 </div>
