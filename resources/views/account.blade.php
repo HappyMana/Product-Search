@@ -14,7 +14,7 @@
         @endif
     @else
         <div class="favorite">
-            <a href="{{ route('account.favorite') }}">お気に入り一覧</a>
+            <a href="{{ route('home.favorite') }}">お気に入り一覧</a>
         </div>
         <div class="user-info">
             <button>会員情報</button>

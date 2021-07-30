@@ -21,9 +21,10 @@ Route::get("/about", "ProductController@about")->name("about");
 Route::get("/search", "ProductController@productSearch")->name("search");
 Route::post("/search/result", "ProductController@getRakutenItems")->name("search.result");
 Route::get("/search/result/{key}", "ProductController@detail")->name("search.result.detail");
-Route::post("/search/result", "ProductController@store")->name("favorite.store");
+Route::post("/home/favorite/{key}", "ProductController@store")->name("favorite.store");
 
 Auth::routes();
-Route::get('/account', 'HomeController@index')->name('account');
-Route::get("/account/favorite", "ProductUserController@index")->name("account.favorite");
-Route::get("/account/favorite/{id}", "ProductUserController@show")->name("account.favorite.show");
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/home/favorite", "ProductUserController@index")->name("home.favorite");
+Route::get("/home/favorite/{id}", "ProductUserController@show")->name("home.favorite.show");
+Route::delete("/home/favorite/{id}", "ProductUserController@delete")->name("home.favorite.destroy");

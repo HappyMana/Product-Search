@@ -16,4 +16,7 @@
         @endforeach
         </div>
     </div>
+    <div>
+        <a href="{{ route('search') }}">検索画面に戻る</a>
+    </div>
 @endsection

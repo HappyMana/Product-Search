@@ -45,8 +45,8 @@
                         <li class="nav-item  @if(Request::routeIs('contact')) active @endif">
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
-                        <li class="nav-item  @if(Request::routeIs('account')) active @endif">
-                            <a class="nav-link" href="/account">Account</a>
+                        <li class="nav-item  @if(Request::routeIs('home')) active @endif">
+                            <a class="nav-link" href="/home">Account</a>
                         </li>
                     </ul>
                 </div>
