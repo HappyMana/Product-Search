@@ -79,8 +79,8 @@ class ProductController extends Controller
                 // $items[$key]["img_src"] = preg_replace("/^http:/", "https:", $imgSrc);
 
             }
-            $items[16] = $response["pageCount"];
-            // dd($items);
+            // $items[16] = $response["pageCount"];
+            dd($items);
 
             $request->session()->put("items", $items);
 
