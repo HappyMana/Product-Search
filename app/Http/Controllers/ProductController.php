@@ -80,7 +80,7 @@ class ProductController extends Controller
 
             }
             // $items[16] = $response["pageCount"];
-            dd($items);
+            // dd($items);
 
             $request->session()->put("items", $items);
 
