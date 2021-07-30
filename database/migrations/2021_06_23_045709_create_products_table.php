@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer("itemPrice");
             $table->text("itemCaption");
             $table->integer("reviewCount");
-            $table->integer("reviewAverage");
+            $table->float("reviewAverage");
             $table->text("itemUrl");
             $table->text("mediumImageUrl1");
             $table->text("mediumImageUrl2");
