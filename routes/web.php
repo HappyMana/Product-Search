@@ -16,6 +16,7 @@
 // });
 
 Route::get("/", "ProductController@top")->name("top");
+
 Route::get("/about", "ProductController@about")->name("about");
 
 Route::get("/search", "ProductController@productSearch")->name("search");

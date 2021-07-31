@@ -6,7 +6,6 @@ body {
    margin: 0;
    padding: 0;
    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-   background-color: red;
 }
 
 /*top-start*/
@@ -16,8 +15,8 @@ body {
 }
 
 .contents-top {
-   margin-top:50px;
-	padding-top: 100px;
+   margin-top:30px;
+	padding-top: 0px;
 	justify-content: center;
 	display: flex;
 }
@@ -26,7 +25,7 @@ body {
    justify-content: center;
    display: flex;
    flex-wrap: wrap;
-   width: 500px;
+   width: 1000px;
    margin: 100;
 }
 

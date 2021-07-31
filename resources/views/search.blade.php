@@ -67,4 +67,5 @@
         		<hr>
         	</div>
         </div>
+        <a href="javascript:history.back()">戻る</a>
 @endsection

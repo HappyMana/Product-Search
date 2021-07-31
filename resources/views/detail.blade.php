@@ -13,33 +13,20 @@
             <p>{{ $items[$key]["itemCaption"] }}</p>
             <button onClick="window.open('{{ $items[$key]["itemUrl"] }}','_blank')">楽天ショップへ</button>
             <button onclick="window.open('{{ $items[$key]["shopUrl"] }}','_blank')">ブランドショップへ</button>
-            <form action="/home/favorite/{{ $key }}" method="POST">
-                @csrf
-                <input type="hidden" name="product" value="{{ $key }}">
-                <button type="submit" onclick="clickBtn()">お気に入り登録</button>
-            </form>
-            <form action="/home/favorite/{{ $key }}" method="POST">
-                @csrf
-                @method("DELETE")
-                <input type="hidden" name="product" value="{{ $key }}">
-                <button type="submit" onclick="clickBtn()" id="delete_btn">お気に入り解除</button>
-            </form>
+            @if($isFavorite)
+                <form action="/home/favorite/{{ $id }}" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <input type="hidden" name="product" value="{{ $id }}">
+                    <button type="submit">お気に入り解除</button>
+                </form>
+            @else
+                <form action="/home/favorite/{{ $key }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product" value="{{ $key }}">
+                    <button type="submit">お気に入り登録</button>
+                </form>
+            @endif
             <a href="javascript:history.back()">戻る</a>
     </div>
-    <script>
-        //初期表示は非表示
-        document.getElementById("delete_btn").style.visibility ="hidden";
-        
-        function clickBtn(){
-        	const btn = document.getElementById("delete_btn");
-        
-        	if(btn.style.visibility=="visible"){
-        		// hiddenで非表示
-        		btn.style.visibility ="hidden";
-        	}else{
-        		// visibleで表示
-        		btn.style.visibility ="visible";
-        	}
-        }
-    </script>
 @endsection

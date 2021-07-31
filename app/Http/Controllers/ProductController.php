@@ -10,6 +10,7 @@ use App\ProductUser;
 use App\Http\Requests\ProductRequest;
 use RakutenRws_Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -44,7 +45,7 @@ class ProductController extends Controller
             "minPrice" => $price_lower,
             "maxPrice" => $price_upper,
             "sort" => $sort,
-            "hits" => 16,
+            "hits" => 30,
             "page" => $product->page()->currentPage(),
             "imageFlag" => 1
         ));
@@ -91,7 +92,34 @@ class ProductController extends Controller
     public function detail(int $key)
     {
         $items = session("items", array());
-        return view("detail", compact("items", "key"));
+        $user_id = Auth::id();
+        $favoriteProductCodes = DB::table('product_users')
+                        ->join('users', 'users.id', '=', 'product_users.user_id')
+                        ->join('products', 'products.id', '=', 'product_users.product_id')
+                        ->select(DB::raw('count(*) as match_result, product_users.id'))
+                        ->where('products.itemCode', '=', $items[$key]["itemCode"])
+                        ->where('product_users.user_id', $user_id)
+                        ->groupBy('product_users.id')
+                        ->get();
+        // dd($favoriteProductCodes[0]->match_result);
+        // $favoriteProduct = (array)$favoriteProductCodes;
+        if( $favoriteProductCodes->count() == 1){
+            $isFavorite = True;
+            $id = $favoriteProductCodes[0]->id;
+        } else {
+            $isFavorite = False;
+            $id = NULL;
+        }
+        // $isFavorite = $favoriteProductCodes[0]->match_result;
+        // $id = $favoriteProductCodes[0]->id;
+        // dd((array)$favoriteProductCodes);
+        // dd($favoriteProductCodes);
+        // $pluckedCodes = $favoriteProductCodes->pluck('itemCode');
+        // var_dump($items[$key]["itemCode"]);
+        // var_dump($pluckedCodes);
+        // $match = array_search($items[$key]["itemCode"], (array)$pluckedCodes);
+        // var_dump($match);
+        return view("detail", compact("items", "key", "isFavorite", "id"));
     }
     
     public function store(int $key, Product $product, User $user, ProductUser $productuser)
