@@ -96,17 +96,22 @@ class ProductController extends Controller
     
     public function store(int $key, Product $product, User $user, ProductUser $productuser)
     {
-        $items = session("items", array());
-        // dd($items[$key]);
-        $product->fill($items[$key])->save();
-        $productuser->product_id=$product->id;
-        $id = Auth::id();
-        $productuser->user_id=$id;
-        $productuser->save();
+        if (Auth::check()) {
+            $items = session("items", array());
+            // dd($items[$key]);
+            $product->fill($items[$key])->save();
+            $productuser->product_id=$product->id;
+            $id = Auth::id();
+            $productuser->user_id=$id;
+            $productuser->save();
         
-        return redirect("/search/result/" . $key);
+            return redirect("/search/result/" . $key);
+        } else {
+            return redirect("/home");
+        }
+
     }
-    
+
     public function about()
     {
         return view("about");

@@ -11,8 +11,8 @@
         <p class="price">値段：{{ $favoriteproduct["itemPrice"] }}円</p>
         <p>ショップ：{{ $favoriteproduct["shopName"] }}</p>
         <p>{{ $favoriteproduct["itemCaption"] }}</p>
-        <button onclick="location.href='{{ $favoriteproduct['itemUrl'] }}'">楽天ショップへ</button>
-        <button onclick="location.href='{{ $favoriteproduct['shopUrl'] }}'">ブランドショップへ</button>
+        <button onclick="window.open('{{ $favoriteproduct["itemUrl"] }}','_blank')">楽天ショップへ</button>
+        <button onclick="window.open('{{ $favoriteproduct["shopUrl"] }}','_blank')">ブランドショップへ</button>
         <form action="/home/favorite/{{ $favoriteproduct['id'] }}" method="POST">
             @csrf
             @method('DELETE')

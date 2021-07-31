@@ -11,13 +11,35 @@
             <p class="price">値段：{{ $items[$key]["itemPrice"] }}円</p>
             <p>ショップ：{{ $items[$key]["shopName"] }}</p>
             <p>{{ $items[$key]["itemCaption"] }}</p>
-            <button onclick="location.href='{{ $items[$key]['itemUrl'] }}'">楽天ショップへ</button>
-            <button onclick="location.href='{{ $items[$key]['shopUrl'] }}'">ブランドショップへ</button>
+            <button onClick="window.open('{{ $items[$key]["itemUrl"] }}','_blank')">楽天ショップへ</button>
+            <button onclick="window.open('{{ $items[$key]["shopUrl"] }}','_blank')">ブランドショップへ</button>
             <form action="/home/favorite/{{ $key }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="product" value="{{ $key }}">
-                    <button type="submit">お気に入り登録</button>
+                @csrf
+                <input type="hidden" name="product" value="{{ $key }}">
+                <button type="submit" onclick="clickBtn()">お気に入り登録</button>
+            </form>
+            <form action="/home/favorite/{{ $key }}" method="POST">
+                @csrf
+                @method("DELETE")
+                <input type="hidden" name="product" value="{{ $key }}">
+                <button type="submit" onclick="clickBtn()" id="delete_btn">お気に入り解除</button>
             </form>
             <a href="javascript:history.back()">戻る</a>
     </div>
+    <script>
+        //初期表示は非表示
+        document.getElementById("delete_btn").style.visibility ="hidden";
+        
+        function clickBtn(){
+        	const btn = document.getElementById("delete_btn");
+        
+        	if(btn.style.visibility=="visible"){
+        		// hiddenで非表示
+        		btn.style.visibility ="hidden";
+        	}else{
+        		// visibleで表示
+        		btn.style.visibility ="visible";
+        	}
+        }
+    </script>
 @endsection
