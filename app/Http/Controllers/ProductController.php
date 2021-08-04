@@ -69,9 +69,21 @@ class ProductController extends Controller
                 $items[$key]["itemCaption"] = $rekutenItem["itemCaption"];
                 $items[$key]["reviewCount"] = $rekutenItem["reviewCount"];
                 $items[$key]["reviewAverage"] = $rekutenItem["reviewAverage"];
-                $items[$key]["mediumImageUrl1"] = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
-                $items[$key]["mediumImageUrl2"] = $rekutenItem["mediumImageUrls"][1]["imageUrl"];
-                $items[$key]["mediumImageUrl3"] = $rekutenItem["mediumImageUrls"][2]["imageUrl"];
+                switch (count($rekutenItem["mediumImageUrls"])) {
+                    case 1:
+                        $items[$key]["mediumImageUrl1"] = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
+                        break;
+                    case 2:
+                        $items[$key]["mediumImageUrl1"] = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
+                        $items[$key]["mediumImageUrl2"] = $rekutenItem["mediumImageUrls"][1]["imageUrl"];
+                        break;
+                    case 3:
+                        $items[$key]["mediumImageUrl1"] = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
+                        $items[$key]["mediumImageUrl2"] = $rekutenItem["mediumImageUrls"][1]["imageUrl"];
+                        $items[$key]["mediumImageUrl3"] = $rekutenItem["mediumImageUrls"][2]["imageUrl"];
+                        break;
+                    default;
+                }
                 $items[$key]["itemUrl"] = $rekutenItem["itemUrl"];
                 $items[$key]["shopName"] = $rekutenItem["shopName"];
                 $items[$key]["shopUrl"] = $rekutenItem["shopUrl"];

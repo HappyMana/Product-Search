@@ -4,9 +4,15 @@
     <div class="container-detail">
         <h1>{{ $favoriteproduct["itemName"] . $favoriteproduct["catchcopy"] }}</h1>
         <div class="clearfix">
-            <img src="{{ $favoriteproduct["mediumImageUrl1"] }}" class="card-img float col-3" alt="トップ1の画像" title="服1の画像">
-            <img src="{{ $favoriteproduct["mediumImageUrl2"] }}" class="card-img float col-3" alt="トップ2の画像" title="服2の画像">
-            <img src="{{ $favoriteproduct["mediumImageUrl3"] }}" class="card-img float col-3" alt="トップ3の画像" title="服3の画像">
+            @if (isset($favoriteproduct["mediumImageUrl1"]))
+                <img src="{{ $favoriteproduct["mediumImageUrl1"] }}" class="card-img float col-3" alt="トップ1の画像" title="服1の画像">
+                @if (isset($favoriteproduct["mediumImageUrl2"]))
+                    <img src="{{ $favoriteproduct["mediumImageUrl2"] }}" class="card-img float col-3" alt="トップ2の画像" title="服2の画像">
+                    @if ($favoriteproduct["mediumImageUrl3"]))
+                        <img src="{{ $favoriteproduct["mediumImageUrl3"] }}" class="card-img float col-3" alt="トップ3の画像" title="服3の画像">
+                    @endif
+                @endif
+            @endif
         </div>
         <p class="price">値段：{{ $favoriteproduct["itemPrice"] }}円</p>
         <p>ショップ：{{ $favoriteproduct["shopName"] }}</p>
