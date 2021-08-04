@@ -8,9 +8,10 @@
                     <img src="{{ $items[$key]["mediumImageUrl2"] }}" class="card-img float col-3" alt="トップ2の画像" title="服2の画像">
                     <img src="{{ $items[$key]["mediumImageUrl3"] }}" class="card-img float col-3" alt="トップ3の画像" title="服3の画像">
             </div>
-            <p class="price">値段：{{ $items[$key]["itemPrice"] }}円</p>
-            <p>ショップ：{{ $items[$key]["shopName"] }}</p>
-            <p>{{ $items[$key]["itemCaption"] }}</p>
+            <h2 class="price">値段：{{ $items[$key]["itemPrice"] }}円</h2>
+            <h2 class="reviewAverage">平均評価：{{ $items[$key]["reviewAverage"] }}</h2>
+            <h2>ショップ：{{ $items[$key]["shopName"] }}</p>
+            <h2>{{ $items[$key]["itemCaption"] }}</h2>
             <button onClick="window.open('{{ $items[$key]["itemUrl"] }}','_blank')">楽天ショップへ</button>
             <button onclick="window.open('{{ $items[$key]["shopUrl"] }}','_blank')">ブランドショップへ</button>
             @if($isFavorite)

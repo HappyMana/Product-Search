@@ -75,13 +75,7 @@ class ProductController extends Controller
                 $items[$key]["itemUrl"] = $rekutenItem["itemUrl"];
                 $items[$key]["shopName"] = $rekutenItem["shopName"];
                 $items[$key]["shopUrl"] = $rekutenItem["shopUrl"];
-
-                // $imgSrc = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
-                // $items[$key]["img_src"] = preg_replace("/^http:/", "https:", $imgSrc);
-
             }
-            // $items[16] = $response["pageCount"];
-            // dd($items);
 
             $request->session()->put("items", $items);
 

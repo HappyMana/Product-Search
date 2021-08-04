@@ -10,6 +10,7 @@
                     <img src="{{ $item["mediumImageUrl1"] }}" class="card-img-top" alt="トップの画像" title="服の画像">
                     <h5 class="card-title">{{ $item["itemName"] }}</h5>
                     <p class="price">値段：{{ $item["itemPrice"] }}円</p>
+                    <p class="reviewAverage">平均評価：{{ $item["reviewAverage"] }}</p>
                     <p>ショップ：{{ $item["shopName"] }}</p>
                 </a>
             </div>
