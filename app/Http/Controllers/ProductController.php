@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function productSearch(){
         return view("search");
     }
-
+    
     public function getRakutenItems(ProductRequest $request, Product $product){
 
         $keyword = $request["search"]["keyword"];
@@ -30,15 +30,21 @@ class ProductController extends Controller
         $price_lower = $request["search"]["price_lower"];
         $price_upper = $request["search"]["price_upper"];
         $sort = $request["search"]["sort"];
-
+        
+        //楽天APIを扱うRakutenRws_Clientクラスのインスタンスを作成します
         $client = new RakutenRws_Client();
+        
+        //定数化
+        define("RAKUTEN_APPLICATION_ID" , config('app.rakuten_id'));
+        define("RAKUTEN_AFFILLIATE_ID"  , config('app.rakuten_affi_id'));
+        
         // アプリID (デベロッパーID) をセットします
-        $client->setApplicationId("1069883906759248801");
+        $client->setApplicationId(RAKUTEN_APPLICATION_ID);
+        
+        // アフィリエイトID をセットします
+        $client->setAffiliateId(RAKUTEN_AFFILLIATE_ID);
 
-        // アフィリエイトID をセットします(任意)
-        $client->setAffiliateId("20bd65de.feeed3d8.20bd65df.7df9ca74");
-
-        // IchibaItem/Search API から、keyword を検索します
+        // IchibaItem/Search API から検索します
         $response = $client->execute("IchibaItemSearch", array(
             "keyword" => $keyword,
             "genreId" => $category,

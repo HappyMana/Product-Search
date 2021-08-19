@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section("content")
-        
         <div class="contents-top">
             <div class="container-top">
                 <form action="/search/result" method="POST">
@@ -9,7 +8,7 @@
                     <input type="hidden" name="search[keyword]">
                     <input type="hidden" name="search[price_lower]">
                     <input type="hidden" name="search[price_upper]">
-                    <input type="hidden" name="search[sort]">
+                    <input type="hidden" name="search[sort]" value="">
                     <button type="submit" class="btn btn-outline-primary w-100px" name="search[category]" value=555086>トップス</button>
                     <button type="button" class="btn btn-outline-primary w-100px" name="search[category]" value="555089">ボトムス </button>
                     <button type="button" class="btn btn-outline-primary w-100px" name="search[category]" value="555089">コート・ジャケット</button>
@@ -32,12 +31,4 @@
                     <button type="button" class="btn btn-outline-primary w-200px" name="search[category]" value="555089">その他</button>
                 </form>
                 </div>
-        
-        <!--@foreach($products as $key => $product)-->
-        <!--    <p>{{ $key }}</p>-->
-        <!--    <br>-->
-        <!--    <p>{{ $product["id"] }}</p>-->
-        <!--    <br>-->
-        <!--@endforeach-->
-        
 @endsection

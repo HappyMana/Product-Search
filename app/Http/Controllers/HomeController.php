@@ -25,5 +25,15 @@ class HomeController extends Controller
     {
         return view('account');
     }
-
+    
+    public function information()
+    {
+        return view('accountinfo');
+    }
+    
+    public function have()
+    {
+        return view('have');
+    }
+    
 }

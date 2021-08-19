@@ -26,6 +26,9 @@ Route::post("/home/favorite/{key}", "ProductController@store")->name("favorite.s
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home/information', 'HomeController@information')->name('home.info');
+Route::get('/home/have', 'HomeController@have')->name('home.have');
+
 Route::get("/home/favorite", "ProductUserController@index")->name("home.favorite");
 Route::get("/home/favorite/{id}", "ProductUserController@show")->name("home.favorite.show");
 Route::delete("/home/favorite/{id}", "ProductUserController@delete")->name("home.favorite.destroy");

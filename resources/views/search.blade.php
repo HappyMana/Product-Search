@@ -5,7 +5,6 @@
         	<div class="container-search">
         		<form action="/search/result" method="POST">
         		    @csrf
-        		    
         			<div class="form-group form-inline input-group-sm">
         			    <label for="keyword" class="col-md-4 control-label">キーワード</label>
         			    <input type="text" class="form-control col-md-5" id="keyword" name="search[keyword]" placeholder="キーワード">
