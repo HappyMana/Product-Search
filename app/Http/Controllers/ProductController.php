@@ -38,7 +38,7 @@ class ProductController extends Controller
         // define("RAKUTEN_APPLICATION_ID" , config('app.rakuten_id'));
         // define("RAKUTEN_AFFILLIATE_ID"  , config('app.rakuten_affi_id'));
         
-        define("RAKUTEN_APPLICATION_ID" , 1069883906759248801;
+        define("RAKUTEN_APPLICATION_ID" , 1069883906759248801);
         // アプリID (デベロッパーID) をセットします
         $client->setApplicationId(RAKUTEN_APPLICATION_ID);
         
