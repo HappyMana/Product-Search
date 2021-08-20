@@ -43,7 +43,7 @@ class ProductController extends Controller
         $client->setApplicationId(RAKUTEN_APPLICATION_ID);
         
         // アフィリエイトID をセットします
-        $client->setAffiliateId(RAKUTEN_AFFILLIATE_ID);
+        // $client->setAffiliateId(RAKUTEN_AFFILLIATE_ID);
 
         // IchibaItem/Search API から検索します
         $response = $client->execute("IchibaItemSearch", array(
