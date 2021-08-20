@@ -15,10 +15,10 @@
     @else
         <div class="favorite">
             <a href="{{ route('home.favorite') }}">お気に入り一覧</a>
-        </div>
-        <div class="have">
-            <a href="{{ route('home.have') }}">持っている服</a>
-        </div>
+        <!--</div>-->
+        <!--<div class="have">-->
+        <!--    <a href="{{ route('home.have') }}">持っている服</a>-->
+        <!--</div>-->
         <div class="user-info">
             <a href="{{ route('home.info') }}">会員情報</a>
         </div>
