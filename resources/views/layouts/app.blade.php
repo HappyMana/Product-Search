@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ショッピングサイト</title>
+    <title>商品検索サイト</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
