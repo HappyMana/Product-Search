@@ -42,9 +42,6 @@
                         <li class="nav-item  @if(Request::routeIs('search')) active @endif">
                             <a class="nav-link" href="/search">Search</a>
                         </li>
-                        <li class="nav-item  @if(Request::routeIs('contact')) active @endif">
-                            <a class="nav-link" href="/contact">Contact</a>
-                        </li>
                         <li class="nav-item  @if(Request::routeIs('home')) active @endif">
                             <a class="nav-link" href="/home">Account</a>
                         </li>
