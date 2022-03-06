@@ -92,8 +92,7 @@ class ProductController extends Controller
 
     public function detail(int $key)
     {
-        $items = session("items", array());
-
+        $items = session()->get("items");
         $product_user = new ProductUser();
         $favorited_product_id = $product_user->favoriteProductID($items[$key]["itemCode"]);
 
