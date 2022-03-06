@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     public function top(){
-        $products = Product::all();
-        return view("top")->with(["products" => $products]);
+        return view("top");
     }
 
     public function productSearch(){
@@ -94,41 +93,18 @@ class ProductController extends Controller
     public function detail(int $key)
     {
         $items = session("items", array());
-        $user_id = Auth::id();
-        $favoriteProductCodes = DB::table('product_users')
-                        ->join('users', 'users.id', '=', 'product_users.user_id')
-                        ->join('products', 'products.id', '=', 'product_users.product_id')
-                        ->select(DB::raw('count(*) as match_result, product_users.id'))
-                        ->where('products.itemCode', '=', $items[$key]["itemCode"])
-                        ->where('product_users.user_id', $user_id)
-                        ->groupBy('product_users.id')
-                        ->get();
+
+        $product_user = new ProductUser();
+        $favorited_product_id = $product_user->favoriteProductID($items[$key]["itemCode"]);
 
         $isFavorite = false;
         $id = NULL;
-        
-        if( $favoriteProductCodes->count() == 1){
+        if( $favorited_product_id->count() === 1){
             $isFavorite = true;
-            $id = $favoriteProductCodes[0]->id;
+            $id = $favorited_product_id[0]->id;
         }
 
         return view("detail", compact("items", "key", "isFavorite", "id"));
-    }
-    
-    public function store(int $key, Product $product, User $user, ProductUser $productuser)
-    {
-        if (Auth::check()) {
-            $items = session("items", array());
-            $product->fill($items[$key])->save();
-            $productuser->product_id=$product->id;
-            $id = Auth::id();
-            $productuser->user_id=$id;
-            $productuser->save();
-        
-            return redirect("/search/result/" . $key);
-        } 
-
-        return redirect("/home");
     }
 
     public function about()
