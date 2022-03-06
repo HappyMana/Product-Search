@@ -24,6 +24,10 @@ class ProductController extends Controller
 
     public function getRakutenItems(ProductRequest $request, Product $product){
 
+        if (is_null($request["search"]["keyword"]) && is_null($request["search"]["category"])) {
+            return redirect("/search");
+        }
+
         $keyword = $request["search"]["keyword"];
         $category = $request["search"]["category"];
         $price_lower = $request["search"]["price_lower"];
@@ -87,7 +91,8 @@ class ProductController extends Controller
             return view("result")->with(["items" => $items]);
         }
 
-        return"Error:".$response->getMessage();
+        return redirect("/search");
+        
     }
 
     public function detail(int $key)
