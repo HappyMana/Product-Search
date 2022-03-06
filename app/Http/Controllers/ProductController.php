@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function productSearch(){
         return view("search");
     }
-    
+
     public function getRakutenItems(ProductRequest $request, Product $product){
 
         $keyword = $request["search"]["keyword"];
@@ -50,12 +50,7 @@ class ProductController extends Controller
             "imageFlag" => 1
         ));
 
-        // レスポンスが正しいかを isOk() で確認
-        if (! $response->isOk()) {
-
-            return"Error:".$response->getMessage();
-
-        } else {
+        if ($response->isOk()) {
             $items = array();
 
             foreach ($response as $key => $rekutenItem) {
@@ -92,6 +87,8 @@ class ProductController extends Controller
 
             return view("result")->with(["items" => $items]);
         }
+
+        return"Error:".$response->getMessage();
     }
 
     public function detail(int $key)
@@ -129,15 +126,13 @@ class ProductController extends Controller
             $productuser->save();
         
             return redirect("/search/result/" . $key);
-        } else {
-            return redirect("/home");
-        }
+        } 
 
+        return redirect("/home");
     }
 
     public function about()
     {
         return view("about");
     }
-
 }
