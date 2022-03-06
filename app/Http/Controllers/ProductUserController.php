@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 class ProductUserController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         $user_id = Auth::id();
         $favorite_products = DB::table('product_users')
                         ->join('users', 'users.id', '=', 'product_users.user_id')
@@ -26,7 +27,8 @@ class ProductUserController extends Controller
         return view("favorite")->with(["favorite_products" => $favorite_products]);
     }
     
-    public function show(int $product_user_id, ProductUser $productuser, Product $product) {
+    public function show(int $product_user_id, ProductUser $productuser, Product $product) 
+    {
         $product_id = ProductUser::find($product_user_id)["product_id"];
         $favorite_product = Product::find($product_id);
         return view("favoritedetail", compact("favorite_product", "product_user_id"));
@@ -48,7 +50,8 @@ class ProductUserController extends Controller
         return redirect("/home");
     }
     
-    public function delete(int $id) {
+    public function delete(int $id) 
+    {
         $productuser = ProductUser::find($id);
         $productuser->delete();
         return redirect('/home/favorite');

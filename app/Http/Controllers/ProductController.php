@@ -14,15 +14,18 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function top(){
+    public function top()
+    {
         return view("top");
     }
 
-    public function productSearch(){
+    public function productSearch()
+    {
         return view("search");
     }
 
-    public function getRakutenItems(ProductRequest $request, Product $product){
+    public function getRakutenItems(ProductRequest $request, Product $product)
+    {
 
         if (is_null($request["search"]["keyword"]) && is_null($request["search"]["category"])) {
             return redirect("/search");
