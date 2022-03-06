@@ -54,11 +54,6 @@
         			        <option value="+reviewAverage">レビュー平均低い順</option>
         			    </select>
         			</div>
-        			
-        			<!--<div class="form-group form-inline input-group-sm">-->
-        			<!--  	<label for="brand" class="col-md-4 control-label">ブランド</label>-->
-        			<!--    <input type="text" class="form-control col-md-5" id="brand" name="search[brand]" placeholder="ブランド">-->
-        			<!--</div>-->
         			<div class="text-center">
         				<button class="btn btn-sm btn-outline-secondary" type="submit">検索</button>
         			</div>

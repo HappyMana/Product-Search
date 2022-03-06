@@ -31,21 +31,14 @@ class ProductController extends Controller
         $price_upper = $request["search"]["price_upper"];
         $sort = $request["search"]["sort"];
         
-        //楽天APIを扱うRakutenRws_Clientクラスのインスタンスを作成します
+        //楽天APIを扱うRakutenRws_Clientクラスのインスタンスを作成
         $client = new RakutenRws_Client();
         
-        //定数化
-        // define("RAKUTEN_APPLICATION_ID" , config('app.rakuten_id'));
-        // define("RAKUTEN_AFFILLIATE_ID"  , config('app.rakuten_affi_id'));
-        
         define("RAKUTEN_APPLICATION_ID" , 1069883906759248801);
-        // アプリID (デベロッパーID) をセットします
+        // アプリID (デベロッパーID) をセット
         $client->setApplicationId(RAKUTEN_APPLICATION_ID);
-        
-        // アフィリエイトID をセットします
-        // $client->setAffiliateId(RAKUTEN_AFFILLIATE_ID);
 
-        // IchibaItem/Search API から検索します
+        // IchibaItem/Search API から検索
         $response = $client->execute("IchibaItemSearch", array(
             "keyword" => $keyword,
             "genreId" => $category,
@@ -57,9 +50,7 @@ class ProductController extends Controller
             "imageFlag" => 1
         ));
 
-        // dd($response);
-
-        // レスポンスが正しいかを isOk() で確認することができます
+        // レスポンスが正しいかを isOk() で確認
         if (! $response->isOk()) {
 
             return"Error:".$response->getMessage();
@@ -76,6 +67,7 @@ class ProductController extends Controller
                 $items[$key]["itemCaption"] = $rekutenItem["itemCaption"];
                 $items[$key]["reviewCount"] = $rekutenItem["reviewCount"];
                 $items[$key]["reviewAverage"] = $rekutenItem["reviewAverage"];
+
                 switch (count($rekutenItem["mediumImageUrls"])) {
                     case 1:
                         $items[$key]["mediumImageUrl1"] = $rekutenItem["mediumImageUrls"][0]["imageUrl"];
@@ -114,8 +106,7 @@ class ProductController extends Controller
                         ->where('product_users.user_id', $user_id)
                         ->groupBy('product_users.id')
                         ->get();
-        // dd($favoriteProductCodes[0]->match_result);
-        // $favoriteProduct = (array)$favoriteProductCodes;
+
         if( $favoriteProductCodes->count() == 1){
             $isFavorite = True;
             $id = $favoriteProductCodes[0]->id;
@@ -123,15 +114,7 @@ class ProductController extends Controller
             $isFavorite = False;
             $id = NULL;
         }
-        // $isFavorite = $favoriteProductCodes[0]->match_result;
-        // $id = $favoriteProductCodes[0]->id;
-        // dd((array)$favoriteProductCodes);
-        // dd($favoriteProductCodes);
-        // $pluckedCodes = $favoriteProductCodes->pluck('itemCode');
-        // var_dump($items[$key]["itemCode"]);
-        // var_dump($pluckedCodes);
-        // $match = array_search($items[$key]["itemCode"], (array)$pluckedCodes);
-        // var_dump($match);
+
         return view("detail", compact("items", "key", "isFavorite", "id"));
     }
     
@@ -139,7 +122,6 @@ class ProductController extends Controller
     {
         if (Auth::check()) {
             $items = session("items", array());
-            // dd($items[$key]);
             $product->fill($items[$key])->save();
             $productuser->product_id=$product->id;
             $id = Auth::id();

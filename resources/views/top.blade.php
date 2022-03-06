@@ -9,10 +9,10 @@
                     <input type="hidden" name="search[price_lower]">
                     <input type="hidden" name="search[price_upper]">
                     <input type="hidden" name="search[sort]" value="">
-                    <button type="submit" class="btn btn-outline-primary w-100px" name="search[category]" value=555086>トップス</button>
-                    <button type="submit" class="btn btn-outline-primary w-100px" name="search[category]" value="555089">ボトムス </button>
-                    <button type="submit" class="btn btn-outline-primary w-100px" name="search[category]" value="555087">コート・ジャケット</button>
-                    <button type="submit" class="btn btn-outline-primary w-100px" name="search[category]" value="110729">ワンピース・ドレス</button>
+                    <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="555086">トップス</button>
+                    <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="555089">ボトムス </button>
+                    <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="555087">コート・ジャケット</button>
+                    <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="110729">ワンピース・ドレス</button>
                     <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="553029">チュニック</button>
                     <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="555083">オールインワン・サロペット</button>
                     <button type="submit" class="btn btn-outline-primary w-200px" name="search[category]" value="555084">ドレス</button>

@@ -22,8 +22,7 @@ class ProductUserController extends Controller
                         ->select('products.*', 'product_users.*')
                         ->where('product_users.user_id', $user_id)
                         ->get();
-        // dd($favoriteproducts);
-        // $favoriteproducts = Product::get();
+
         return view("favorite")->with(["favoriteproducts" => $favoriteproducts]);
     }
     
@@ -35,7 +34,6 @@ class ProductUserController extends Controller
     
     public function delete(int $id) {
         $productuser = ProductUser::find($id);
-        // dd($productuser);
         $productuser->delete();
         return redirect('/home/favorite');
     }
