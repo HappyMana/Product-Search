@@ -107,12 +107,12 @@ class ProductController extends Controller
                         ->groupBy('product_users.id')
                         ->get();
 
+        $isFavorite = false;
+        $id = NULL;
+        
         if( $favoriteProductCodes->count() == 1){
-            $isFavorite = True;
+            $isFavorite = true;
             $id = $favoriteProductCodes[0]->id;
-        } else {
-            $isFavorite = False;
-            $id = NULL;
         }
 
         return view("detail", compact("items", "key", "isFavorite", "id"));
