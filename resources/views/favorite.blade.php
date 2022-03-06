@@ -4,7 +4,7 @@
     <h1>お気に入り一覧</h1>
     <div class="container-fluid card-group">
         <div class="row">
-        @foreach($favoriteproducts as $id => $product)
+        @foreach($favorite_products as $id => $product)
             <div class="card col-3">
                 <a href="{{ route('home.favorite.show', ['id' => $product->id]) }}">
                     <img src="{{ $product->mediumImageUrl1 }}" class="card-img-top" alt="トップの画像" title="服の画像">
