@@ -1,5 +1,5 @@
 # アプリの概要
-このアプリは服の検索アプリ。
+服の検索アプリ。
 
 # 使用言語
 - PHP 7.3.28
@@ -12,7 +12,3 @@
 
 # URL
 https://apologetic-sorry-91308.herokuapp.com/
-
-#テストアカウント
-E-Mail Address:test@test
-Password:12345678
